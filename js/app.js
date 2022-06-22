@@ -44,6 +44,21 @@ function generateEmployees(employeeData) {
     });
 }
 
+function searchUsers() {
+    let input = document.getElementById('search-bar').value
+    input = input.toLowerCase();
+    let users = document.getElementsByClassName('card');
+
+    for (let i = 0; i < users.length; i++) {
+        if (!users[i].innerHTML.toLowerCase().includes(input)) {
+            users[i].style.display = "none";
+        }
+        else {
+            users[i].style.display = "";
+        }
+    }
+}
+
 function displayModal(index) {
     // use object destructuring make our template literal cleaner
     let { name: { first, last }, dob, phone, email, location: { city, street: { number, name }, state, postcode
@@ -51,21 +66,82 @@ function displayModal(index) {
 
     let date = new Date(dob.date);
 
-    const modalHTML = `
-        <img class="avatar" src="${picture.large}" />
+
+    let modalHTML = `
+        <button id="left-btn">&Lang;</button>
+        <button id="right-btn">&Rang;</button>
+        <img class="avatar" id="avatar" src="${picture.large}" />
         <div class="text-container">
-        <h2 class="name">${first} ${last}</h2>
-        <p class="email">${email}</p>
-        <p class="address">${city}</p>
+        <h2 class="name" id="name">${first} ${last}</h2>
+        <p class="email" id="email">${email}</p>
+        <p class="address" id="city">${city}</p>
         <hr />
-        <p>${phone}</p>
-        <p class="address">${number} ${name}, ${state} ${postcode}</p>
-        <p>Birthday:
+        <p id="phone">${phone}</p>
+        <p class="address" id="address">${number} ${name}, ${state} ${postcode}</p>
+        <p id="birthday">Birthday:
         ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
         </div>
+        
     `;
     overlay.classList.remove("hidden");
     modalContainer.innerHTML = modalHTML;
+
+    let rightBtn = document.getElementById('right-btn');
+    let leftBtn = document.getElementById('left-btn');
+
+    rightBtn.addEventListener('click', (e) => {
+
+        if (index < employees.length - 1) {
+
+            index = parseInt(index);
+            index++;
+            index = index.toString();
+
+            let { name: { first, last }, dob, phone, email, location: { city, street: { number, name }, state, postcode
+            }, picture } = employees[index];
+
+            let date = new Date(dob.date);
+
+            document.getElementById('avatar').src = `${picture.large}`;
+            document.getElementById('name').innerHTML = `${first} ${last}`;
+            document.getElementById('email').innerHTML = `${email}`;
+            document.getElementById('city').innerHTML = `${city}`;
+            document.getElementById('phone').innerHTML = `${phone}`;
+            document.getElementById('address').innerHTML = `${number} ${name}, ${state} ${postcode}`;
+            document.getElementById('birthday').innerHTML = `Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
+
+        }
+
+
+    });
+
+    leftBtn.addEventListener('click', (e) => {
+
+        if (index > 0) {
+
+            index = parseInt(index);
+            index--;
+            index = index.toString();
+
+            let { name: { first, last }, dob, phone, email, location: { city, street: { number, name }, state, postcode
+            }, picture } = employees[index];
+
+            let date = new Date(dob.date);
+
+            document.getElementById('avatar').src = `${picture.large}`;
+            document.getElementById('name').innerHTML = `${first} ${last}`;
+            document.getElementById('email').innerHTML = `${email}`;
+            document.getElementById('city').innerHTML = `${city}`;
+            document.getElementById('phone').innerHTML = `${phone}`;
+            document.getElementById('address').innerHTML = `${number} ${name}, ${state} ${postcode}`;
+            document.getElementById('birthday').innerHTML = `Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
+
+        }
+
+
+    });
+
+
 }
 
 employeeList.addEventListener('click', e => {
@@ -81,3 +157,8 @@ employeeList.addEventListener('click', e => {
 modalClose.addEventListener('click', () => {
     overlay.classList.add("hidden");
 });
+
+
+
+
+

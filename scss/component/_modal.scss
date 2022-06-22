@@ -44,3 +44,47 @@ hr {
     color: $accent-color;
 
 }
+
+button {
+
+    background-color: $accent-color;
+    outline: none;
+    border: none;
+    color: $white;
+
+    &:hover {
+
+        background-color: $white;
+        color: $accent-color;
+
+    }
+}
+
+#left-btn {
+
+    display: flex;
+    align-items: center;
+    height: 100px;
+    margin-top: 150px;
+    font-weight: 700;
+    float: left;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+}
+
+#right-btn {
+
+
+    display: flex;
+    align-items: center;
+    height: 100px;
+    margin-top: 150px;
+    font-weight: 700;
+    float: right;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+}

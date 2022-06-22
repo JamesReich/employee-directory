@@ -1,3 +1,24 @@
+#search-wrapper {
+  display: flex;
+  width: 75%;
+  align-content: center;
+  justify-content: flex-end;
+}
+
+#search-bar {
+  width: 40%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  border-bottom: 5px solid #284B63;
+  transition: all 0.2s ease-in-out;
+}
+#search-bar:focus {
+  border-bottom: 10px solid #ecb426;
+  outline: none;
+  outline-width: 0;
+}
+
 #emp-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +44,7 @@
   transition: all 0.2s ease-in-out;
 }
 .card:hover {
-  transform: scale(1.1) translateY(-10px);
+  border-left: 20px solid #ecb426;
 }
 
 .text-container {
@@ -93,6 +114,39 @@ hr {
   width: 80%;
   height: 1px;
   color: #ecb426;
+}
+
+button {
+  background-color: #ecb426;
+  outline: none;
+  border: none;
+  color: #FFFFFF;
+}
+button:hover {
+  background-color: #FFFFFF;
+  color: #ecb426;
+}
+
+#left-btn {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  margin-top: 150px;
+  font-weight: 700;
+  float: left;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#right-btn {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  margin-top: 150px;
+  font-weight: 700;
+  float: right;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

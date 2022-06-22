@@ -1,0 +1,28 @@
+#search-wrapper {
+
+    display: flex;
+    width: 75%;
+    align-content: center;
+    justify-content: flex-end;
+
+
+}
+
+#search-bar {
+
+    width: 40%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 5px solid $primary-color;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+
+        border-bottom: 10px solid $accent-color;
+        outline: none;
+        outline-width: 0;
+
+    }
+
+}
