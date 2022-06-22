@@ -1,0 +1,67 @@
+#emp-wrapper {
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    max-width: 1500px;
+
+}
+
+.card {
+
+    display: flex;
+    background-color: $primary-color;
+    color: $white;
+    margin: 5px 10px;
+    border: 1px solid $dark-color;
+    align-content: center;
+    justify-content: center;
+    border-radius: 2px;
+    height: 175px;
+    width: 350px;
+    box-shadow: $box-shadow;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+
+        transform: scale(1.1) translateY(-10px);
+
+    }
+
+}
+
+.text-container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.email,
+.name,
+.address {
+
+    margin: 5px;
+
+}
+
+.email {
+
+    color: $accent-color;
+
+}
+
+.avatar {
+
+    border-radius: 50%;
+    justify-self: center;
+    align-self: center;
+    margin: 5px;
+    height: 100px;
+    width: 100px;
+
+}

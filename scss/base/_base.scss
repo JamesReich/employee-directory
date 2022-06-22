@@ -1,6 +1,27 @@
+* {
+
+    hyphens: auto;
+
+}
+
 body {
 
-    background-color: $background-color;
+    position: relative;
+    background-color: $dark-color;
 
+
+}
+
+h1 {
+
+    color: $accent-color;
+    margin-left: 320px;
+
+}
+
+main {
+
+    max-width: 1600px;
+    margin: 0 auto;
 
 }
