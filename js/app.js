@@ -79,7 +79,7 @@ function displayModal(index) {
         <p id="phone">${phone}</p>
         <p class="address" id="address">${number} ${name}, ${state} ${postcode}</p>
         <p id="birthday">Birthday:
-        ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+        ${(date.getMonth() + 1)}/${date.getDate()}/${date.getFullYear()}</p>
         </div>
         
     `;
@@ -91,56 +91,63 @@ function displayModal(index) {
 
     rightBtn.addEventListener('click', (e) => {
 
-        if (index < employees.length - 1) {
+        if (index >= employees.length - 1) {
 
-            index = parseInt(index);
-            index++;
-            index = index.toString();
-
-            let { name: { first, last }, dob, phone, email, location: { city, street: { number, name }, state, postcode
-            }, picture } = employees[index];
-
-            let date = new Date(dob.date);
-
-            document.getElementById('avatar').src = `${picture.large}`;
-            document.getElementById('name').innerHTML = `${first} ${last}`;
-            document.getElementById('email').innerHTML = `${email}`;
-            document.getElementById('city').innerHTML = `${city}`;
-            document.getElementById('phone').innerHTML = `${phone}`;
-            document.getElementById('address').innerHTML = `${number} ${name}, ${state} ${postcode}`;
-            document.getElementById('birthday').innerHTML = `Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
+            index = '-1';
 
         }
 
+        index = parseInt(index);
+        index++;
+        index = index.toString();
+
+        let { name: { first, last }, dob, phone, email, location: { city, street: { number, name }, state, postcode
+        }, picture } = employees[index];
+
+        let date = new Date(dob.date);
+
+        document.getElementById('avatar').src = `${picture.large}`;
+        document.getElementById('name').innerHTML = `${first} ${last}`;
+        document.getElementById('email').innerHTML = `${email}`;
+        document.getElementById('city').innerHTML = `${city}`;
+        document.getElementById('phone').innerHTML = `${phone}`;
+        document.getElementById('address').innerHTML = `${number} ${name}, ${state} ${postcode}`;
+        document.getElementById('birthday').innerHTML = `Birthday: ${(date.getMonth() + 1)}/${date.getDate()}/${date.getFullYear()}`;
+
+
+        console.log(index)
+        console.log(employees.length - 1)
 
     });
+
 
     leftBtn.addEventListener('click', (e) => {
 
-        if (index > 0) {
+        if (index <= 0) {
 
-            index = parseInt(index);
-            index--;
-            index = index.toString();
-
-            let { name: { first, last }, dob, phone, email, location: { city, street: { number, name }, state, postcode
-            }, picture } = employees[index];
-
-            let date = new Date(dob.date);
-
-            document.getElementById('avatar').src = `${picture.large}`;
-            document.getElementById('name').innerHTML = `${first} ${last}`;
-            document.getElementById('email').innerHTML = `${email}`;
-            document.getElementById('city').innerHTML = `${city}`;
-            document.getElementById('phone').innerHTML = `${phone}`;
-            document.getElementById('address').innerHTML = `${number} ${name}, ${state} ${postcode}`;
-            document.getElementById('birthday').innerHTML = `Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
+            index = '12';
 
         }
 
+        index = parseInt(index);
+        index--;
+        index = index.toString();
+
+        let { name: { first, last }, dob, phone, email, location: { city, street: { number, name }, state, postcode
+        }, picture } = employees[index];
+
+        let date = new Date(dob.date);
+
+        document.getElementById('avatar').src = `${picture.large}`;
+        document.getElementById('name').innerHTML = `${first} ${last}`;
+        document.getElementById('email').innerHTML = `${email}`;
+        document.getElementById('city').innerHTML = `${city}`;
+        document.getElementById('phone').innerHTML = `${phone}`;
+        document.getElementById('address').innerHTML = `${number} ${name}, ${state} ${postcode}`;
+        document.getElementById('birthday').innerHTML = `Birthday: ${(date.getMonth() + 1)}/${date.getDate()}/${date.getFullYear()}`;
+
 
     });
-
 
 }
 
