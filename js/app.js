@@ -115,9 +115,6 @@ function displayModal(index) {
         document.getElementById('birthday').innerHTML = `Birthday: ${(date.getMonth() + 1)}/${date.getDate()}/${date.getFullYear()}`;
 
 
-        console.log(index)
-        console.log(employees.length - 1)
-
     });
 
 
