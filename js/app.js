@@ -47,14 +47,14 @@ function generateEmployees(employeeData) {
 function searchUsers() {
     let input = document.getElementById('search-bar').value
     input = input.toLowerCase();
-    let users = document.getElementsByClassName('card');
-
+    let users = document.getElementsByClassName('name');
+    let card = document.getElementsByClassName('card');
     for (let i = 0; i < users.length; i++) {
         if (!users[i].innerHTML.toLowerCase().includes(input)) {
-            users[i].style.display = "none";
+            card[i].style.display = "none";
         }
         else {
-            users[i].style.display = "";
+            card[i].style.display = "";
         }
     }
 }
